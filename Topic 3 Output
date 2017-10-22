@@ -1,0 +1,29 @@
+Tania Nelzy
+													Exam Statistics
+
+Student ID	Right	Wrong	Answered	Omitted		Grade	 Percent				Message					Omitted Message
+   1234      12       13       25         25         24       0.480         more wrong than right         10 or more omitted
+   2345      15       15       30         20         30       0.500         equal right and wrong         10 or more omitted
+   3456      26       22       48          2         52       0.542         more right than wrong       less than 10 omitted
+   4567       9        7       16         34         18       0.563         more right than wrong         10 or more omitted
+   5678       5       18       23         27         10       0.217         more wrong than right         10 or more omitted
+   6789      25       20       45          5         50       0.556         more right than wrong       less than 10 omitted
+   7891       1        2        3         47          2       0.333         more wrong than right         10 or more omitted
+   8910      13        0       13         37         26       1.000         more right than wrong         10 or more omitted
+   9101      17       11       28         22         34       0.607         more right than wrong         10 or more omitted
+   1011      34       16       50          0         68       0.680         more right than wrong       less than 10 omitted
+   1111      20       20       40         10         40       0.500         equal right and wrong         10 or more omitted
+   1112       0        0        0         50          0       0.000         no questions answered         10 or more omitted
+   1121      39       17       56          0          0       0.000      input error: answered>50                 ----------
+   1213      24       25       49          1         48       0.490         more wrong than right       less than 10 omitted
+   2131       5       10       15         35         10       0.333         more wrong than right         10 or more omitted
+   1314       6       15       21         29         12       0.286         more wrong than right         10 or more omitted
+   3141      20       23       43          7         40       0.465         more wrong than right       less than 10 omitted
+   1415       3        5        8         42          6       0.375         more wrong than right         10 or more omitted
+   4151      40        7       47          3         80       0.851         more right than wrong       less than 10 omitted
+   1516       0       26       26         24          0       0.000         more wrong than right         10 or more omitted
+
+
+There are 20 students in the class.
+The highest grade is 80 by student 4151.
+The best answer percentage is 1.0 by student 8910.
