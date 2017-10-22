@@ -1,0 +1,74 @@
+//Tania Nelzy
+
+import java.io.*;
+
+public class Formula {
+
+	public static void main(String[] args) throws IOException {		
+		//declare variables
+		double x,y;
+		int zero = 0,positive = 0,negative = 0;
+		String message = null;
+		
+		//create output file object using PrintWriter class
+		PrintWriter outputFile;
+		
+		//attach the object to a file and open the file
+		outputFile = new PrintWriter ("c:/Users/tatou/JavaProjects/Topic 2/myoutput.txt");
+		
+		outputFile.println("Tania Nelzy\n\n");
+		outputFile.println();
+		outputFile.println();
+
+		outputFile.println("This is the output of your first program:\n");
+		outputFile.println();
+		
+		//create table 
+		outputFile.println("\t     Formula Outputs\n");
+		outputFile.println();
+		outputFile.println("X Values\tY Values\t   Message");
+		
+		//evaluate the formula
+		for (x=-3; x<=4; x+=0.5) {
+			y = ((9*x*x*x - 27*x*x - 4*x + 12)/(Math.sqrt(3*x*x + 1) + 
+					Math.abs(5-x*x*x*x)));
+			
+			//state message results based on y and
+			//count the number of times each occurs
+			if (y==0) {
+				message = "Y IS ZERO";
+				zero+=1;
+			}
+			
+			if (y>0) {
+				message = "Y IS POSITIVE";
+				positive+=1;
+			}
+			
+			if (y<0) {
+				message = "Y IS NEGATIVE";
+				negative+=1;
+			}
+			
+			//format console output
+			outputFile.printf("%5.1f%18.3f\t\t" + message + "\n", x,y);		
+			outputFile.println();
+		}
+		
+		//print number of times formula yields pos, neg, and zero
+		outputFile.println();
+		outputFile.println("Zero Y Values: " + zero);
+		outputFile.println("Positive Y Values: " + positive);
+		outputFile.println("Negative Y Values: " + negative);
+		
+		//flush the output buffer
+		outputFile.flush();
+		
+		//show completion of program
+		System.out.println("The program has completed.");
+		
+		//close the file
+		outputFile.close();
+	}
+
+}
