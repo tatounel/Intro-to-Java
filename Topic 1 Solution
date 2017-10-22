@@ -1,0 +1,18 @@
+//Tania Nelzy
+
+
+public class PrintNumbers {
+
+  public static void main(String[] args) {
+    System.out.println("Tania Nelzy");
+    System.out.println("");
+
+    //declare variables
+    int number;
+
+    //use a for loop to iterate
+    for (number=1; number <=100; number=number+5) {
+      System.out.println(number + (" ") + (number+1) + (" ") + (number+2) + (" ") + (number+3) + (" ") + (number+4));
+    }
+  }
+}
