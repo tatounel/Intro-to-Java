@@ -1,0 +1,131 @@
+//Tania Nelzy
+
+import java.io.*;
+import java.util.Scanner;
+
+public class ExamStatistics {
+	
+	public static void main(String[] args) throws IOException {
+		 //declare variables
+		 int id, right, wrong, answered, omitted, grade, numofstudents = 0;
+		 int maxgradeid = 0,  maxgrade = 0, maxperid = 0;
+		 double ranspercent, maxpercent = -1.0;
+		 String message = null, omessage = null;
+		
+		 //open the input file
+		 File myfile = new File("c:/Users/tatou/JavaProjects/Topic 3/myinput.txt");
+		
+		 //create scanner object to read input
+		 Scanner inputFile = new Scanner(myfile);
+		 //Scanner inputFile = new Scanner(System.in); //read from console
+		
+		 //create output file using PrintWriter class
+		 PrintWriter outputFile;
+		
+		 //attach object to a file and open the file
+		 outputFile = new PrintWriter("c:/Users/tatou/JavaProjects/Topic 3/myoutput.txt");
+		
+		 outputFile.println("Tania Nelzy");
+		
+		 //print table header
+		 outputFile.println("\t\t\t\t\t\t\t\t\t\t\t\t\tExam Statistics\n");
+		 outputFile.println("Student ID\tRight\tWrong\tAnswered\tOmitted\t\tGrade\t "
+				 				+ "Percent\t\t\t\tMessage\t\t\t\t\tOmitted Message");
+		
+		 System.out.print("Please enter student ID: ");
+		 id = inputFile.nextInt();
+		
+		 while (id!= -1) {
+			 //prompt for and read right answers
+			 System.out.print("Please enter the total number of right answers: ");
+			 right = inputFile.nextInt();
+			
+			 //prompt for and read wrong answers
+			 System.out.print("Please enter the total number of wrong answers: ");
+			 wrong = inputFile.nextInt();
+			 
+			 //calculate total questions answered
+			 answered = right + wrong;
+			 
+			 //calculate omitted questions
+			 omitted = 50 - answered;
+			 if (omitted >=10)
+				 omessage = "10 or more omitted";
+			 else
+				 omessage = "less than 10 omitted";
+			 
+			 
+			 //calculate student's correct answer percentage
+			 //don't divide by 0
+			 if (answered == 0)
+				 ranspercent = 0;
+			 else
+				 ranspercent = (double)right/answered;
+			
+			 //calculate student's grade
+			 grade = right*2;
+			
+			 //determines if student has more right than wrong answers
+			 if (right>wrong)
+				 message = "more right than wrong";
+			 else if (wrong>right)
+				 message = "more wrong than right";
+			 else if (answered == 0)
+				 message = "no questions answered";
+			 else
+				 message = "equal right and wrong";
+			 
+			 //print error message if total questions answered > 50
+			 if (answered>50) {
+				 message = "input error: answered>50";
+				 omitted = 0;
+				 grade = 0;
+				 ranspercent = 0;
+				 omessage = "----------";
+			 }
+			 
+			 //finding highest grade
+			 if (grade>maxgrade) {
+				 maxgrade=grade;
+				 maxgradeid=id;
+			 }
+			 
+			 //finding highest answer percentage
+			 if (ranspercent>maxpercent) {
+				 maxpercent=ranspercent;
+				 maxperid=id;
+			 }
+			 
+			 //print student exam information
+			 outputFile.printf("%7d%8d%9d%9d%11d", id,right,wrong,answered,omitted);
+			 outputFile.printf("%11d%12.3f %29s %26s", grade,ranspercent,message,omessage);
+			 outputFile.println();
+			
+			 //flush output buffer
+			 outputFile.flush();
+			 
+			 //increment number of students
+			 numofstudents++;
+			 
+	         //ask for next student
+			 System.out.println("Please enter student ID (enter -1 to stop): ");
+			 id = inputFile.nextInt();
+			
+		 }
+		 
+		 outputFile.println("\n\nThere are " +numofstudents+ " students in the class.");
+		 outputFile.println("The highest grade is " +maxgrade+ " by student " 
+				 				+maxgradeid+ ".");
+		 outputFile.println("The best answer percentage is " +maxpercent+
+				 				" by student " +maxperid+ ".");
+		 
+		 //show completion of program
+		 System.out.println("The program has completed.");
+		
+		 //close file
+		 inputFile.close();
+		 outputFile.close();
+		 
+	}
+
+ }
