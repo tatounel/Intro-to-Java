@@ -1,0 +1,156 @@
+//Tania Nelzy
+
+import java.io.*;
+import java.util.Scanner;
+
+public class BowlingScores {
+
+	public static void main(String[] args) throws IOException {		
+		//declare variables
+		int score1, score2, score3;
+		int groups = 0, validgroups = 0, invalidgroups = 0;
+		
+		//open input file
+		File myfile = new File("c:/Users/tatou/JavaProjects/Topic 5/myinput.txt");
+		
+		//create scanner to read input
+		//Scanner inputFile = new Scanner(System.in);
+		Scanner inputFile = new Scanner(myfile);
+		
+		//create output file
+		PrintWriter outputFile;
+		outputFile = new PrintWriter("c:/Users/tatou/JavaProjects/Topic 5/myoutput.txt");
+		
+		outputFile.println("Tania Nelzy\n");
+		outputFile.println("\t\t\t\t\t\t\t\tBowling Scores\n");
+
+		//ask for bowling scores
+		System.out.println("Please enter your first score: ");
+		score1 = inputFile.nextInt();
+		
+		//continue reading scores until sentinel of 999 is inputed
+		while(score1 != 999) {
+			
+			System.out.println("Please enter your second score: ");
+			score2 = inputFile.nextInt();
+			System.out.println("Please enter your third score: ");
+			score3 = inputFile.nextInt();
+			//print bowling scores
+			outputFile.println();
+			outputFile.println();
+			outputFile.println();
+			outputFile.println("Score 1: "+score1+ " \tScore 2: "+score2+ 
+								" \tScore 3: "+score3);
+			
+			//call methods
+			if (validgroup(score1,score2, score3, outputFile) == 1){
+				onegamescore(score1, outputFile);
+				onegamescore(score2, outputFile);
+				onegamescore(score3, outputFile);
+				outputFile.println("Average: " + avgthreescores(score1, score2, score3));
+				validgroups++;
+			}
+			else 
+				invalidgroups++;
+			
+			//flush output
+			outputFile.flush();
+			
+			//count number of groups
+			groups++;
+						
+			//ask for next group of scores
+			System.out.println("Please enter your first score: ");
+			score1 = inputFile.nextInt();
+		}
+		
+		//print total number of groups
+		outputFile.println("\n\nValid groups: " +validgroups);
+		outputFile.println("Invalid groups: " +invalidgroups);
+		outputFile.println("There are "+groups+ " groups in total.");
+		
+		//show completion of program
+		System.out.println("The program has completed.");
+		
+		//close file
+		inputFile.close();
+		outputFile.close();
+	}
+	//create method valid group
+	//input: 3 scores and a file object
+	//process: uses six if statements to check if each score is in range 0 to 300
+	//output: returns 1 if group is valid, 0 if group is invalid
+	public static int validgroup(int score1, int score2, int score3, PrintWriter myout) {
+		int valid = 1;
+		
+		//true =1 and false =0
+		if(score1 <0) {
+			myout.println("Score "+score1+ " is invalid because it is less than 0.");
+			valid =0;
+		}
+		if(score1 >300) {
+			myout.println("Score "+score1+ " is invalid because it is greater than 300.");
+			valid =0;
+		}
+		if(score2 <0) {
+			myout.println("Score "+score2+ " is invalid because it is less than 0.");
+			valid =0;
+		}
+		if(score2 >300) {
+			myout.println("Score "+score2+ " is invalid because it is greater than 300.");
+			valid =0;
+		}
+		if(score3 <0) {
+			myout.println("Score "+score3+ " is invalid because it is less than 0.");
+			valid =0;
+		}
+		if(score3 >300) {
+			myout.println("Score "+score3+ " is invalid because it is greater than 300.");
+			valid =0;
+		}
+		
+		//print whether group is valid
+		if(valid==1)
+			myout.println("Group is valid.");
+		else
+			myout.println("Group is invalid.");
+		
+		//return value to main
+		return valid;	
+	}
+	
+	//create method one game score
+	//input: one score and a file object
+	//process: if statements used to give ratings based on scores
+	//output: prints rating for valid group scores
+	public static void onegamescore(int score, PrintWriter myout) {
+		String rating = null;
+		
+		//assign rating based on score
+		if(score>=250 && score<=300)
+			rating = "professional";
+		else if(score>=200 && score<=249)
+			rating = "excellent";
+		else if(score>=140 && score<=199)
+			rating = "very good";
+		else if(score>=100 && score<=139 )
+			rating = "good";
+		else if(score>=50 && score<=99)
+			rating = "poor";
+		else 
+			rating = "horrible";
+		
+		//print rating and score
+		myout.println("Score: "+score+ " \tRating: " +rating);
+	}
+	
+	//create method average three scores
+	//input: three scores
+	//process: add all scores and divide by three
+	//output: average of three scores
+	public static int avgthreescores(int score1, int score2, int score3) {
+		int average;
+		average = (score1 + score2 + score3)/3;
+		return average;
+	}
+}
