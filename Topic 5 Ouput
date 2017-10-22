@@ -1,0 +1,70 @@
+Tania Nelzy
+
+								Bowling Scores
+
+
+
+
+Score 1: 120 	Score 2: 240 	Score 3: 300
+Group is valid.
+Score: 120 	Rating: good
+Score: 240 	Rating: excellent
+Score: 300 	Rating: professional
+Average: 220
+
+
+
+Score 1: 459 	Score 2: 168 	Score 3: -560
+Score 459 is invalid because it is greater than 300.
+Score -560 is invalid because it is less than 0.
+Group is invalid.
+
+
+
+Score 1: 76 	Score 2: 121 	Score 3: 256
+Group is valid.
+Score: 76 	Rating: poor
+Score: 121 	Rating: good
+Score: 256 	Rating: professional
+Average: 151
+
+
+
+Score 1: 5 	Score 2: 357 	Score 3: 189
+Score 357 is invalid because it is greater than 300.
+Group is invalid.
+
+
+
+Score 1: 238 	Score 2: 0 	Score 3: 41
+Group is valid.
+Score: 238 	Rating: excellent
+Score: 0 	Rating: horrible
+Score: 41 	Rating: horrible
+Average: 93
+
+
+
+Score 1: 643 	Score 2: 289 	Score 3: 175
+Score 643 is invalid because it is greater than 300.
+Group is invalid.
+
+
+
+Score 1: 190 	Score 2: 65 	Score 3: 222
+Group is valid.
+Score: 190 	Rating: very good
+Score: 65 	Rating: poor
+Score: 222 	Rating: excellent
+Average: 159
+
+
+
+Score 1: -23 	Score 2: 156 	Score 3: 79
+Score -23 is invalid because it is less than 0.
+Group is invalid.
+
+
+Valid groups: 4
+Invalid groups: 4
+There are 8 groups in total.
